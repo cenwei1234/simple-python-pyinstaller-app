@@ -29,7 +29,7 @@ pipeline {
         stage('Deliver') { 
             agent {
                 docker {
-                    image 'kirk24788/pyinstaller' 
+                    image 'cdrx/pyinstaller-linux' 
                 }
             }
             steps {
