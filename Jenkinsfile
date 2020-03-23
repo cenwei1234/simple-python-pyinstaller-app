@@ -34,7 +34,7 @@ pipeline {
             }
             steps {
                 sh 'python --version'
-                sh 'pyinstaller -v'
+                sh 'docker run -v $(pwd -P):/src cdxr/pyinstaller'
                 sh 'pyinstaller --onefile sources/add2vals.py' 
             }
             post {
