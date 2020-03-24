@@ -34,12 +34,12 @@ pipeline {
             agent any
             environment { 
                 VOLUME = '$(pwd)/sources:/src'
-                IMAGE = 'six8/pyinstaller-alpine'
+                IMAGE = 'cdrx/pyinstaller-linux:python2'
             }
             steps {
                 dir(path: env.BUILD_ID) { 
                     unstash(name: 'compiled-results') 
-                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F --onefile add2vals.py'" 
+                    sh "docker run --rm --entrypoint /bin/sh -v ${VOLUME} ${IMAGE} 'pyinstaller -F --onefile add2vals.py'" 
                 }
             }
             post {
