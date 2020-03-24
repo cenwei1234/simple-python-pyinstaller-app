@@ -34,7 +34,7 @@ pipeline {
             agent any
             environment { 
                 VOLUME = '$(pwd)/sources:/src'
-                IMAGE = 'cdrx/pyinstaller-linux:python2'
+                IMAGE = 'ermescs/pyinstaller-alpine'
             }
             steps {
                 dir(path: env.BUILD_ID) { 
