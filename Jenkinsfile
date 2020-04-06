@@ -33,7 +33,6 @@ pipeline {
         stage('Deliver') { 
             agent any
             steps {
-                sh 'pip3 install pyinstaller'
                 sh 'pyinstaller --onefile sources/add2vals.py'
             }
             post {
